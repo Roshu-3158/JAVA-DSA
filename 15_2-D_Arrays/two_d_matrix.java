@@ -17,8 +17,8 @@ public class two_d_matrix {
         int row=3;
         int col=3;
         int[][] matrix = new int[row][col];
-
         Scanner sc = new Scanner(System.in);
+
         for(int i=0; i<row; i++){
             for(int j=0; j<col; j++){
                 matrix[i][j] = sc.nextInt();
@@ -32,7 +32,9 @@ public class two_d_matrix {
             }
             System.out.println();
         }  
-
+        
         search(matrix, 3, row, col);
+        sc.close();
+
     }
 }
