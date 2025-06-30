@@ -153,13 +153,99 @@ public class LinkedList {
 
     }
 
+    // reverse a linked list iterrative approach
+    public Node reverse_iterative() {
+        if (head == null || head.next == null) {
+            return head; // base case
+        }
+
+        Node prev = null;
+        Node curr = head;
+        Node next = null;
+
+        while (curr != null) {
+            next = curr.next; // store next node
+            curr.next = prev; // reverse the link
+            prev = curr; // move prev to current node
+            curr = next; // move to next node
+        }
+
+        head = prev; // update head to the new first node
+        return head;
+    }
+
+    // find and remove nth node from the end iterative approach
+    public void removeNthFromEnd(int n) {
+        // calculate size
+        int sz = 0;
+        Node temp = head;
+        while (temp != null) {
+            sz++;
+            temp = temp.next;
+        }
+
+        if (n == sz) {
+            head = head.next; // remove first node
+            return;
+        }
+
+        int i = 1;
+        int indexToRemove = sz - n;
+        Node prev = head;
+        while (i < indexToRemove) {
+            prev = prev.next; // move to the node before the one to remove
+            i++;
+        }
+
+        prev.next = prev.next.next; // skip the node to remove
+
+    }
+
+    // check if LL is a palindrome
+    public boolean isPalindrome() {
+        if (head == null || head.next == null) {
+            return true; // empty or single node list is a palindrome
+        }
+
+        // find the middle of the linked list
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        // reverse the second half of the linked list
+        Node prev = null;
+        Node curr = slow;
+        while (curr != null) {
+            Node nextNode = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nextNode;
+        }
+
+        // compare the first half and the reversed second half
+        Node firstHalf = head;
+        Node secondHalf = prev; // this is now the head of the reversed second half
+        while (secondHalf != null) {
+            if (firstHalf.data != secondHalf.data) {
+                return false; // not a palindrome
+            }
+            firstHalf = firstHalf.next;
+            secondHalf = secondHalf.next;
+        }
+
+        return true; // is a palindrome
+    }
+
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
         ll.print();
         ll.addFirst(0);
         ll.addLast(1);
-        ll.addLast(3);
-        ll.addLast(4);
+        ll.addLast(1);
+        ll.addLast(0);
         ll.print();
         System.out.println();
         ll.addindex(2, 2);
@@ -167,18 +253,32 @@ public class LinkedList {
         System.out.println();
         System.out.println("Size of LL : " + size);
 
-        System.out.println("Deleted Node : " + ll.removeFirst());
-        ll.print();
+        // System.out.println("Deleted Node : " + ll.removeFirst());
+        // ll.print();
         System.out.println();
-        System.out.println("Deleted Node : " + ll.removeLast());
-        ll.print();
+        // System.out.println("Deleted Node : " + ll.removeLast());
+        // ll.print();
         System.out.println();
         System.out.println("Size of LL : " + size);
         System.out.println();
         System.out.println("Key found at index : " + ll.search_iterative(3));
         System.out.println("Key found at index : " + ll.search_recursive(head, 2));
-     
 
+        System.out.println();
+        System.out.println("Original Linked List : ");
+        ll.print();
+        System.out.println();
+        // ll.reverse_iterative();
+        // System.out.println("Reversed Linked List : ");
+        // ll.print();
+
+        // System.out.println();
+        // ll.removeNthFromEnd(2);
+        // ll.print();
+        // System.out.println();
+
+        System.out.println("Is Palindrome: " + ll.isPalindrome());
+        System.out.println();
     }
 
 }
