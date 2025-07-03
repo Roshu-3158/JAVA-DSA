@@ -351,7 +351,7 @@ public class LinkedList {
         ll.print();
 
         System.out.println("\nSorted Linked List:");
-        ll.head = ll.mergeSort(ll.head);
+        head = ll.mergeSort(head);
         ll.print();
         System.out.println("\nzig zag Linked List:");
         ll.zigzag(head);
