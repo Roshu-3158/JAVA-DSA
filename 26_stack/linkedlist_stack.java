@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class linkedlist_stack {
 
     static class Node {
