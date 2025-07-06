@@ -73,7 +73,7 @@ public class array_circular_queue {
         System.out.println(q.remove());
         q.add(4);
         System.out.println(q.remove());
-        q.add(5);
+        // q.add(5);
 
         while (!q.isempty()) {
             System.out.println(q.peek());
