@@ -1,12 +1,12 @@
 import java.util.Queue;
-import java.util.ArrayDeque;
+// import java.util.ArrayDeque;
 import java.util.LinkedList;
 
 public class java_packages {
 
     public static void main(String[] args) {
         Queue<Integer> q = new LinkedList<>();
-        Queue<Integer> s = new ArrayDeque<>();
+        // Queue<Integer> s = new ArrayDeque<>();
 
         q.add(1);
         q.add(2);

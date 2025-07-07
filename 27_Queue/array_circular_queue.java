@@ -2,8 +2,8 @@ public class array_circular_queue {
     static class queue {
         static int arr[];
         static int size;
-        static int rear;
-        static int front;
+        int rear;
+        int front;
 
         queue(int n) {
             arr = new int[n];
@@ -45,7 +45,7 @@ public class array_circular_queue {
                 return -1;
             }
 
-            int result = arr[front];
+            // int result = arr[front];
             // remove last element
             if (rear == front) {
                 rear = front = -1;
