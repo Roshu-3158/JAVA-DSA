@@ -11,7 +11,7 @@ public class count_distinct_elements {
             set.add(nums[i]);
         }
 
-        System.out.println("Ans = "+set.size());
+        System.out.println("Ans =  "+set.size());
         
     }
     
